@@ -1,0 +1,89 @@
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: #e0e0e0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-header h1 {
+  color: #fff;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.subtitle {
+  color: #a0a0a0;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.page-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.page-item {
+  background: rgba(30, 30, 50, 0.8);
+  border-radius: 8px;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: block;
+  backdrop-filter: blur(10px);
+  color: inherit;
+}
+
+.page-item:hover {
+  border-color: #ff6b6b;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  transform: translateY(-1px);
+}
+
+.page-title {
+  color: #ffd93d;
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.page-uuid {
+  color: #4ecdc4;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75em;
+  background: rgba(78, 205, 196, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.page-description {
+  color: #b0b0b0;
+  margin-top: 6px;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+.home-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  color: #666;
+  font-size: 0.85em;
+}

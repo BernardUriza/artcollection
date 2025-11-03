@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Collection - Offline Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: linear-gradient(to bottom, #0f0f1e, #1a1a2e);
+      color: #e0e0e0;
+    }
+    h1 { color: #4ade80; }
+    .status {
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border-left: 4px solid #4ade80;
+      background: rgba(74, 222, 128, 0.1);
+    }
+    .status.error {
+      border-left-color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+    .status.warning {
+      border-left-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.1);
+    }
+    code {
+      background: rgba(0,0,0,0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+    button {
+      background: #4ade80;
+      color: #1a1a2e;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px;
+    }
+    button:hover {
+      background: #22c55e;
+    }
+    .cache-list {
+      background: rgba(0,0,0,0.2);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .cache-item {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 5px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Art Collection - PWA Offline Test</h1>
+
+  <div id="status-container"></div>
+
+  <h2>Service Worker Status</h2>
+  <div id="sw-status" class="status warning">Checking...</div>
+
+  <h2>Network Status</h2>
+  <div id="network-status" class="status warning">Checking...</div>
+
+  <h2>Cache Storage</h2>
+  <div id="cache-status" class="status warning">Checking...</div>
+  <div id="cache-list" class="cache-list" style="display:none;">
+    <h3>Cached Assets:</h3>
+    <div id="cache-items"></div>
+  </div>
+
+  <h2>Actions</h2>
+  <button onclick="testOffline()">Test Offline Mode</button>
+  <button onclick="clearCache()">Clear Cache</button>
+  <button onclick="registerSW()">Register Service Worker</button>
+  <button onclick="goHome()">Go to Home</button>
+
+  <script>
+    // Check Service Worker
+    async function checkServiceWorker() {
+      const status = document.getElementById('sw-status');
+      if (!('serviceWorker' in navigator)) {
+        status.className = 'status error';
+        status.textContent = '❌ Service Workers not supported in this browser';
+        return;
+      }
+
+      try {
+        const registration = await navigator.serviceWorker.getRegistration();
+        if (registration) {
+          status.className = 'status';
+          status.innerHTML = `
+            ✅ Service Worker is registered and active
+            <br><small>Scope: ${registration.scope}</small>
+            <br><small>Active Worker: ${registration.active ? 'Yes' : 'No'}</small>
+          `;
+        } else {
+          status.className = 'status warning';
+          status.textContent = '⚠️ Service Worker not registered yet. It will register on app load.';
+        }
+      } catch (error) {
+        status.className = 'status error';
+        status.textContent = `❌ Error: ${error.message}`;
+      }
+    }
+
+    // Check Network Status
+    function checkNetwork() {
+      const status = document.getElementById('network-status');
+      if (navigator.onLine) {
+        status.className = 'status';
+        status.textContent = '✅ Online - Service Worker will cache new assets';
+      } else {
+        status.className = 'status warning';
+        status.textContent = '⚠️ Offline - Using cached assets only';
+      }
+
+      window.addEventListener('online', () => {
+        status.className = 'status';
+        status.textContent = '✅ Online - Service Worker will cache new assets';
+      });
+
+      window.addEventListener('offline', () => {
+        status.className = 'status warning';
+        status.textContent = '⚠️ Offline - Using cached assets only';
+      });
+    }
+
+    // Check Cache Storage
+    async function checkCache() {
+      const status = document.getElementById('cache-status');
+      const list = document.getElementById('cache-list');
+      const items = document.getElementById('cache-items');
+
+      if (!('caches' in window)) {
+        status.className = 'status error';
+        status.textContent = '❌ Cache API not supported';
+        return;
+      }
+
+      try {
+        const cacheNames = await caches.keys();
+        if (cacheNames.length === 0) {
+          status.className = 'status warning';
+          status.textContent = '⚠️ No caches yet. They will be created on first app load.';
+          return;
+        }
+
+        status.className = 'status';
+        status.innerHTML = `✅ Found ${cacheNames.length} cache storage(s)`;
+        list.style.display = 'block';
+
+        let totalSize = 0;
+        let allItems = [];
+
+        for (const cacheName of cacheNames) {
+          const cache = await caches.open(cacheName);
+          const requests = await cache.keys();
+
+          requests.forEach(req => {
+            allItems.push(`[${cacheName}] ${req.url}`);
+          });
+        }
+
+        items.innerHTML = allItems.length > 0
+          ? allItems.map(item => `<div class="cache-item">${item}</div>`).join('')
+          : '<div class="cache-item">No items cached yet</div>';
+      } catch (error) {
+        status.className = 'status error';
+        status.textContent = `❌ Error: ${error.message}`;
+      }
+    }
+
+    // Test Offline
+    function testOffline() {
+      if (navigator.onLine) {
+        alert('Device is online. To test offline mode:\n1. Press Ctrl+Shift+K in DevTools\n2. Toggle offline in Network tab\n3. Navigate to a cached page');
+      } else {
+        alert('Device is offline. Try navigating to the home page - it should load from cache!');
+      }
+    }
+
+    // Clear Cache
+    async function clearCache() {
+      if (!confirm('Clear all cached data? You will need to be online to reload.')) return;
+
+      try {
+        const cacheNames = await caches.keys();
+        await Promise.all(cacheNames.map(name => caches.delete(name)));
+        alert('✅ Cache cleared');
+        location.reload();
+      } catch (error) {
+        alert(`❌ Error: ${error.message}`);
+      }
+    }
+
+    // Register SW
+    async function registerSW() {
+      if (!('serviceWorker' in navigator)) {
+        alert('Service Workers not supported');
+        return;
+      }
+
+      try {
+        const reg = await navigator.serviceWorker.register('/sw.js');
+        alert('✅ Service Worker registered');
+        setTimeout(checkServiceWorker, 1000);
+      } catch (error) {
+        alert(`❌ Registration failed: ${error.message}`);
+      }
+    }
+
+    // Navigate to home
+    function goHome() {
+      window.location.href = '/';
+    }
+
+    // Initialize checks
+    window.addEventListener('load', () => {
+      checkServiceWorker();
+      checkNetwork();
+      checkCache();
+    });
+  </script>
+</body>
+</html>

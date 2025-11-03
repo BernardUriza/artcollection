@@ -1,0 +1,67 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0f1e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="artGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffd93d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#bgGradient)"/>
+
+  <!-- Main artistic "A" shape with palette -->
+  <g filter="url(#glow)">
+    <!-- Left stroke of A -->
+    <path d="M 180 380 L 256 140 L 280 140 L 200 380 Z" fill="url(#artGradient)" opacity="0.9"/>
+
+    <!-- Right stroke of A -->
+    <path d="M 280 140 L 356 380 L 332 380 L 256 140 Z" fill="url(#artGradient)" opacity="0.9"/>
+
+    <!-- Cross bar of A with artistic flair -->
+    <path d="M 220 280 L 316 280 L 310 300 L 226 300 Z" fill="url(#artGradient)" opacity="0.95"/>
+
+    <!-- Paint palette circles (artistic touch) -->
+    <circle cx="140" cy="200" r="20" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="160" cy="160" r="16" fill="#ffd93d" opacity="0.8"/>
+    <circle cx="372" cy="200" r="20" fill="#4ecdc4" opacity="0.8"/>
+    <circle cx="352" cy="160" r="16" fill="#a78bfa" opacity="0.8"/>
+
+    <!-- Brush stroke accent -->
+    <path d="M 140 360 Q 180 340, 220 360 T 300 360 Q 340 380, 372 360"
+          stroke="url(#artGradient)"
+          stroke-width="6"
+          fill="none"
+          opacity="0.6"
+          stroke-linecap="round"/>
+
+    <!-- Small artistic dots -->
+    <circle cx="256" cy="100" r="8" fill="#ffd93d" opacity="0.9"/>
+    <circle cx="200" cy="400" r="6" fill="#ff6b6b" opacity="0.7"/>
+    <circle cx="312" cy="400" r="6" fill="#4ecdc4" opacity="0.7"/>
+  </g>
+
+  <!-- Subtle text -->
+  <text x="256" y="450"
+        font-family="'Segoe UI', sans-serif"
+        font-size="36"
+        font-weight="bold"
+        fill="#e0e0e0"
+        text-anchor="middle"
+        opacity="0.4">COLLECTION</text>
+</svg>

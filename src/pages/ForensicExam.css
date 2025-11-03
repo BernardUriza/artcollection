@@ -1,0 +1,417 @@
+/* ForensicExam.css */
+.forensic-exam {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e0e0e0;
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.forensic-exam .container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.forensic-exam header {
+  background: rgba(15, 15, 30, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 5px solid #ff6b6b;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.forensic-exam h1 {
+  color: #ff6b6b;
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.forensic-exam .subtitle {
+  color: #a0a0a0;
+  font-size: 0.95em;
+  font-style: italic;
+}
+
+.forensic-exam .phase {
+  background: rgba(30, 30, 50, 0.6);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.forensic-exam .phase:hover {
+  border-color: #ff6b6b;
+  box-shadow: 0 5px 20px rgba(255, 107, 107, 0.2);
+}
+
+.forensic-exam .phase-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+}
+
+.forensic-exam .phase-number {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-right: 15px;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.forensic-exam .phase-title {
+  flex: 1;
+}
+
+.forensic-exam .phase-title h2 {
+  color: #ffd93d;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.forensic-exam .age-range {
+  color: #a0a0a0;
+  font-size: 0.9em;
+}
+
+.forensic-exam .prompt {
+  background: rgba(20, 20, 35, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 3px solid #4ecdc4;
+}
+
+.forensic-exam .prompt-label {
+  color: #4ecdc4;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.forensic-exam .analysis {
+  background: rgba(10, 10, 20, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.forensic-exam .mechanism-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.forensic-exam .mechanism-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.1),
+    rgba(238, 90, 111, 0.1)
+  );
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.forensic-exam .mechanism-title {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+.forensic-exam .mechanism-desc {
+  color: #c0c0c0;
+  font-size: 0.9em;
+}
+
+.forensic-exam .flow-diagram {
+  background: rgba(20, 20, 35, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border: 1px solid rgba(255, 211, 61, 0.3);
+}
+
+.forensic-exam .flow-step {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.forensic-exam .flow-arrow {
+  color: #ffd93d;
+  font-size: 1.5em;
+  margin: 0 15px;
+}
+
+.forensic-exam .flow-text {
+  background: rgba(255, 211, 61, 0.1);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border-left: 3px solid #ffd93d;
+  flex: 1;
+}
+
+.forensic-exam .marker-list {
+  list-style: none;
+  padding: 0;
+}
+
+.forensic-exam .marker-list li {
+  background: rgba(255, 107, 107, 0.1);
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border-left: 3px solid #ff6b6b;
+  font-family: 'Courier New', monospace;
+}
+
+.forensic-exam .marker-list li::before {
+  content: '⚠ ';
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.forensic-exam .checklist {
+  background: rgba(78, 205, 196, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.forensic-exam .checklist-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(20, 20, 35, 0.6);
+  border-radius: 5px;
+}
+
+.forensic-exam .check-icon {
+  color: #ff6b6b;
+  font-size: 1.2em;
+  margin-right: 10px;
+  min-width: 20px;
+}
+
+.forensic-exam .formula {
+  background: linear-gradient(
+    135deg,
+    rgba(78, 205, 196, 0.1),
+    rgba(78, 205, 196, 0.05)
+  );
+  padding: 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border: 2px dashed #4ecdc4;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  font-size: 1.1em;
+  color: #4ecdc4;
+}
+
+.forensic-exam .warning-box {
+  background: rgba(255, 107, 107, 0.15);
+  border: 2px solid #ff6b6b;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.forensic-exam .warning-box strong {
+  color: #ff6b6b;
+}
+
+.forensic-exam .metric {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.2),
+    rgba(238, 90, 111, 0.1)
+  );
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  font-size: 0.9em;
+}
+
+.forensic-exam .autopsy {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(20, 20, 35, 0.8)
+  );
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #ff6b6b;
+  margin-top: 20px;
+}
+
+.forensic-exam .autopsy-header {
+  color: #ff6b6b;
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.forensic-exam .autopsy-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(30, 30, 50, 0.5);
+  border-radius: 8px;
+}
+
+.forensic-exam .autopsy-label {
+  color: #ffd93d;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.forensic-exam .quote {
+  font-style: italic;
+  color: #a0a0a0;
+  border-left: 3px solid #4ecdc4;
+  padding-left: 15px;
+  margin: 15px 0;
+}
+
+.forensic-exam .balance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.forensic-exam .balance-box {
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.forensic-exam .balance-box.income {
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid #4ecdc4;
+}
+
+.forensic-exam .balance-box.expense {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid #ff6b6b;
+}
+
+.forensic-exam .balance-box h4 {
+  margin-bottom: 10px;
+}
+
+.forensic-exam .balance-box.income h4 {
+  color: #4ecdc4;
+}
+
+.forensic-exam .balance-box.expense h4 {
+  color: #ff6b6b;
+}
+
+.forensic-exam .response-box {
+  background: rgba(255, 107, 107, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.forensic-exam .response-title {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.forensic-exam .response-box ol {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.forensic-exam .epilogue {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #4ecdc4;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+.forensic-exam .epilogue h2 {
+  color: #4ecdc4;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.forensic-exam .epilogue-content {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(20, 20, 35, 0.6);
+  border-radius: 8px;
+}
+
+.forensic-exam .epilogue-highlight {
+  color: #ffd93d;
+  font-size: 1.1em;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.forensic-exam footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+
+.forensic-exam footer p:first-child {
+  margin-bottom: 10px;
+}
+
+.forensic-exam footer p:last-child {
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .forensic-exam .mechanism-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forensic-exam h1 {
+    font-size: 1.5em;
+  }
+
+  .forensic-exam .phase-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1em;
+  }
+
+  .forensic-exam .balance-grid {
+    grid-template-columns: 1fr;
+  }
+}
