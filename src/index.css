@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
+/* Reset defaults but allow Tailwind utilities to override */
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+/* Allow Tailwind padding utilities to work */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  padding: 0;
+  margin: 0;
 }
 
 #root {
