@@ -78,4 +78,7 @@ export default defineConfig({
     port: 8850,
     open: true,
   },
+  preview: {
+    port: 8851,
+  },
 });
