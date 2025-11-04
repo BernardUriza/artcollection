@@ -34,4 +34,9 @@ export const pages = [
     title: 'FI-core + BioML | Infraestructura Soberana VIH',
     description: 'Infraestructura de integridad para investigación biomédica verificable. Simulaciones auditables, pipelines ML seguros, custodia forense de datos.',
   },
+  {
+    uuid: '2a196ccc-d7c5-8126-b582-dbafc084a389',
+    title: 'The Society of Lucid Exhaustion™',
+    description: 'Unofficial intranet of the most functional team in the least functional system. A satirical exploration of corporate reality.',
+  },
 ];

@@ -1,13 +1,14 @@
 // Art Collection PWA Service Worker
 // Offline-first caching strategy with aggressive precaching
 
-const CACHE_NAME = 'artcollection-v1';
-const RUNTIME_CACHE = 'artcollection-runtime';
+const CACHE_NAME = 'artcollection-v3';
+const RUNTIME_CACHE = 'artcollection-runtime-v3';
 const ASSETS_TO_PRECACHE = [
   '/',
   '/index.html',
   '/favicon.ico',
   '/logo.svg',
+  '/pages.json',
 ];
 
 // Install event - precache essential assets
@@ -35,6 +36,7 @@ self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
       .then(cacheNames => {
+        console.log('Found caches:', cacheNames);
         return Promise.all(
           cacheNames.map(cacheName => {
             if (cacheName !== CACHE_NAME && cacheName !== RUNTIME_CACHE) {
@@ -44,11 +46,26 @@ self.addEventListener('activate', event => {
           })
         );
       })
-      .then(() => self.clients.claim())
+      .then(() => {
+        console.log('Claiming clients...');
+        return self.clients.claim();
+      })
+      .then(() => {
+        console.log('Triggering initial sync...');
+        // Notify all clients to trigger initial sync
+        return self.clients.matchAll();
+      })
+      .then(clients => {
+        clients.forEach(client => {
+          client.postMessage({
+            type: 'SW_ACTIVATED',
+          });
+        });
+      })
   );
 });
 
-// Fetch event - offline-first strategy
+// Fetch event - network-first for data, cache-first for assets
 self.addEventListener('fetch', event => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') {
@@ -60,6 +77,78 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Skip Vite dev server requests (HMR, client, etc)
+  if (event.request.url.includes('/@vite') ||
+      event.request.url.includes('/@react-refresh') ||
+      event.request.url.includes('/src/') ||
+      event.request.url.includes('.jsx?')) {
+    return;
+  }
+
+  // Stale-while-revalidate strategy for dynamic data files (pages.js, etc.)
+  // Serves cached data immediately, updates in background
+  if (event.request.url.includes('/data/') || event.request.url.includes('.json')) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(cachedResponse => {
+          // Create a fetch request for fresh data
+          const fetchPromise = fetch(event.request)
+            .then(response => {
+              // Only cache successful responses
+              if (!response || response.status !== 200 || response.type !== 'basic') {
+                return response;
+              }
+
+              // Clone and update cache in background
+              const responseToCache = response.clone();
+              caches.open(RUNTIME_CACHE)
+                .then(cache => {
+                  cache.put(event.request, responseToCache);
+                  console.log('Updated cache for:', event.request.url);
+                })
+                .catch(error => {
+                  console.log('Cache write failed:', error);
+                });
+
+              // Parse response to get page count (separate clone for parsing)
+              response.clone().json()
+                .then(data => {
+                  const pageCount = Array.isArray(data) ? data.length : 0;
+                  const lastPage = Array.isArray(data) && data.length > 0 ? data[data.length - 1].title : null;
+
+                  // Notify all clients about the sync
+                  self.clients.matchAll().then(clients => {
+                    clients.forEach(client => {
+                      client.postMessage({
+                        type: 'SYNC_UPDATED',
+                        totalPages: pageCount,
+                        lastPage: lastPage,
+                        buildDate: new Date().toISOString(),
+                      });
+                    });
+                  });
+                })
+                .catch(e => console.log('Could not parse response:', e));
+
+              return response;
+            })
+            .catch(error => {
+              console.log('Network fetch failed for:', event.request.url, error);
+              // If both cache and network fail, return empty response
+              if (!cachedResponse) {
+                return new Response('[]', { status: 200, headers: { 'Content-Type': 'application/json' } });
+              }
+              throw error;
+            });
+
+          // Return cached response immediately, fetch fresh data in background
+          return cachedResponse || fetchPromise;
+        })
+    );
+    return;
+  }
+
+  // Cache-first strategy for static assets
   event.respondWith(
     caches.match(event.request)
       .then(response => {

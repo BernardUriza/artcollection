@@ -20,12 +20,19 @@ time, mark, audio, video {
   padding: 0;
 }
 
+html {
+  background-color: #020617;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  background-color: #020617;
+  color: #e2e8f0;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+  background-color: #020617;
 }

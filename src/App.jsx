@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import Home from './pages/Home';
 import ForensicExam from './pages/ForensicExam';
 import LanguageWorkshop from './pages/LanguageWorkshop';
@@ -7,10 +8,32 @@ import TonyOneOnOne from './pages/TonyOneOnOne';
 import AurityDeck from './pages/AurityDeck';
 import FICold from './pages/FICold';
 import FIBioML from './pages/FIBioML';
+import LaSociedadCansados from './pages/LaSociedadCansados';
+import PWAStatusBadge from './components/PWAStatusBadge/PWAStatusBadge';
 
 function App() {
+  useEffect(() => {
+    // Trigger service worker update when app comes online
+    const handleOnline = () => {
+      console.log('App came online - refreshing data');
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration().then((reg) => {
+          if (reg) {
+            reg.update();
+            // Optionally reload the page to get fresh data
+            window.location.reload();
+          }
+        });
+      }
+    };
+
+    window.addEventListener('online', handleOnline);
+    return () => window.removeEventListener('online', handleOnline);
+  }, []);
+
   return (
     <Router>
+      <PWAStatusBadge />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -40,6 +63,10 @@ function App() {
         <Route
           path="/page/b20f354b-e6b1-4fa3-ba19-7b4a3317f7a2"
           element={<FIBioML />}
+        />
+        <Route
+          path="/page/2a196ccc-d7c5-8126-b582-dbafc084a389"
+          element={<LaSociedadCansados />}
         />
       </Routes>
     </Router>
