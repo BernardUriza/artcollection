@@ -1,8 +1,8 @@
 // Art Collection PWA Service Worker
 // Offline-first caching strategy with aggressive precaching
 
-const CACHE_NAME = 'artcollection-v3';
-const RUNTIME_CACHE = 'artcollection-runtime-v3';
+const CACHE_NAME = 'artcollection-v4';
+const RUNTIME_CACHE = 'artcollection-runtime-v4';
 const ASSETS_TO_PRECACHE = [
   '/',
   '/index.html',
@@ -77,15 +77,19 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Skip Vite dev server requests (HMR, client, etc)
+  // Handle Vite dev server requests (HMR, client, etc)
+  // These are only needed in development mode and will fail when offline
   if (event.request.url.includes('/@vite') ||
       event.request.url.includes('/@react-refresh') ||
       event.request.url.includes('/src/') ||
-      event.request.url.includes('.jsx?')) {
+      event.request.url.includes('main.jsx') ||
+      event.request.url.includes('/client')) {
+    // Don't intercept - let these fail naturally or be handled by browser
+    // This allows the app to still function from cache even if these dev resources fail
     return;
   }
 
-  // Stale-while-revalidate strategy for dynamic data files (pages.js, etc.)
+  // Stale-while-revalidate strategy for dynamic data files (pages.json, etc.)
   // Serves cached data immediately, updates in background
   if (event.request.url.includes('/data/') || event.request.url.includes('.json')) {
     event.respondWith(
@@ -143,6 +147,73 @@ self.addEventListener('fetch', event => {
 
           // Return cached response immediately, fetch fresh data in background
           return cachedResponse || fetchPromise;
+        })
+    );
+    return;
+  }
+
+  // Special handling for HTML documents (navigation requests)
+  // Use cache-first for navigation to support offline
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      // First, try to get from cache
+      caches.match(event.request)
+        .then(cachedResponse => {
+          if (cachedResponse) {
+            console.log('Returning cached navigation response for:', event.request.url);
+            return cachedResponse;
+          }
+
+          // If not in cache, try network
+          return fetch(event.request)
+            .then(response => {
+              // Validate response
+              if (!response || response.status !== 200) {
+                console.log('Invalid response from network:', event.request.url, response?.status);
+                return response;
+              }
+
+              // Clone and cache successful responses
+              const responseToCache = response.clone();
+              caches.open(RUNTIME_CACHE)
+                .then(cache => {
+                  console.log('Caching navigation response:', event.request.url);
+                  cache.put(event.request, responseToCache);
+                })
+                .catch(error => {
+                  console.log('Failed to cache navigation response:', error);
+                });
+
+              return response;
+            })
+            .catch(error => {
+              // Network failed and nothing in cache
+              console.log('Navigation fetch failed and no cache:', error);
+
+              // Try fallback to index.html
+              return caches.match('/index.html')
+                .then(indexResponse => {
+                  if (indexResponse) {
+                    console.log('Using cached index.html as fallback');
+                    return indexResponse;
+                  }
+
+                  // Last resort
+                  console.log('No fallback available - returning error response');
+                  return new Response('Offline - unable to load page', {
+                    status: 503,
+                    headers: { 'Content-Type': 'text/plain' }
+                  });
+                })
+                .catch(cacheError => {
+                  console.error('Error checking cache for index.html:', cacheError);
+                  return new Response('Service offline', { status: 503 });
+                });
+            });
+        })
+        .catch(error => {
+          console.error('Error in navigation handler:', error);
+          return new Response('Service Worker error', { status: 500 });
         })
     );
     return;

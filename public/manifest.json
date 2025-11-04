@@ -1,0 +1,19 @@
+{
+  "name": "Art Collection",
+  "short_name": "ArtCollection",
+  "description": "Distinguished collection of artistic documents and presentations",
+  "theme_color": "#1a1a2e",
+  "background_color": "#0f0f1e",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
