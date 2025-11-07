@@ -1,5 +1,16 @@
 # Art Collection - Claude Instructions
 
+## 🎯 Trello CLI v2.2.0 - Intelligent Card Movement Analysis (REQUIRED)
+
+**All card movements must use Trello CLI v2.2.0 with Claude AI analysis:**
+
+```bash
+trello quick-start <card_id>    # Start work + automatic analysis
+trello quick-test <card_id>     # Move to testing + analysis
+trello quick-done <card_id>     # Complete + analysis
+```
+
+
 ## Project Overview
 
 This is an Art Collection project built with React + Vite. Each page is identified by a UUID and displays experimental content.
