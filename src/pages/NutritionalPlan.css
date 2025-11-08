@@ -1,0 +1,413 @@
+.nutritional-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nutritional-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 20px;
+  background: #f5f5f5;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+.nutritional-container .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nutritional-container .header-with-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 20px;
+}
+
+.nutritional-container h1 {
+  color: #2c3e50;
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+.nutritional-container .printable-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  white-space: nowrap;
+}
+
+.nutritional-container .printable-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.nutritional-container .printable-button:active {
+  transform: translateY(0);
+}
+
+.nutritional-container h2 {
+  color: #2c3e50;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  border-bottom: 2px solid #34495e;
+  padding-bottom: 8px;
+}
+
+.nutritional-container .tip {
+  background: #fff3cd;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ffc107;
+  font-size: 14px;
+}
+
+.nutritional-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 32px;
+}
+
+.nutritional-container th {
+  background: #34495e;
+  color: white;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #2c3e50;
+}
+
+.nutritional-container td {
+  padding: 10px 8px;
+  border: 1px solid #ddd;
+  vertical-align: top;
+  color: #1a202c;
+  font-weight: 500;
+}
+
+.nutritional-container tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.nutritional-container .day {
+  font-weight: 600;
+  color: #2c3e50;
+  background: #e9ecef !important;
+}
+
+.nutritional-container .ingredients {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.nutritional-container .ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.nutritional-container .ingredient-category {
+  background: white;
+  padding: 16px;
+  border-radius: 4px;
+  border-left: 3px solid #34495e;
+}
+
+.nutritional-container .ingredient-category h3 {
+  color: #34495e;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.nutritional-container .ingredient-category ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nutritional-container .ingredient-category li {
+  padding: 4px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.nutritional-container .ingredient-category li:before {
+  content: "• ";
+  color: #34495e;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Narrative Plan Styles */
+.nutritional-container .narrative-plan {
+  margin-top: 32px;
+}
+
+.nutritional-container .narrative-intro {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 32px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.nutritional-container .narrative-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+
+.nutritional-container .narrative-text {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.nutritional-container .day-narrative {
+  background: white;
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nutritional-container .day-narrative:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.nutritional-container .day-header {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nutritional-container .day-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+}
+
+.nutritional-container .prep-badge {
+  background: #667eea;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.nutritional-container .meal-prep-day .day-header {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+}
+
+.nutritional-container .narrative-content {
+  padding: 24px;
+}
+
+.nutritional-container .narrative-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 12px;
+}
+
+.nutritional-container .narrative-content strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.nutritional-container .ritual {
+  background: #f7fafc;
+  border-left: 4px solid #667eea;
+  padding: 16px 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.nutritional-container .meal-prep {
+  border-left-color: #fdcb6e;
+  background: #fffbf0;
+}
+
+.nutritional-container .ritual-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nutritional-container .meal-prep .ritual-title {
+  color: #e17055;
+}
+
+.nutritional-container .ritual ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nutritional-container .ritual li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #4a5568;
+  position: relative;
+  padding-left: 24px;
+}
+
+.nutritional-container .ritual li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.nutritional-container .meal-prep li:before {
+  color: #e17055;
+}
+
+.nutritional-container .daily-tips {
+  background: linear-gradient(135deg, #a8e6cf 0%, #3eecac 100%);
+  padding: 28px 32px;
+  border-radius: 12px;
+  margin: 32px 0;
+}
+
+.nutritional-container .daily-tips h3 {
+  color: #1a5240;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+
+.nutritional-container .daily-tips ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nutritional-container .daily-tips li {
+  padding: 10px 0;
+  font-size: 15px;
+  color: #1a5240;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 28px;
+}
+
+.nutritional-container .daily-tips li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1a5240;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nutritional-container .narrative-closing {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  padding: 28px 32px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.nutritional-container .narrative-closing p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #2d3748;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .nutritional-container {
+    padding: 10px;
+  }
+
+  .nutritional-container .container {
+    padding: 16px;
+  }
+
+  .nutritional-container .header-with-button {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nutritional-container .printable-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nutritional-container table {
+    font-size: 11px;
+  }
+
+  .nutritional-container th,
+  .nutritional-container td {
+    padding: 8px 4px;
+  }
+
+  .nutritional-container .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutritional-container .narrative-intro {
+    padding: 20px;
+  }
+
+  .nutritional-container .narrative-subtitle {
+    font-size: 16px;
+  }
+
+  .nutritional-container .narrative-text {
+    font-size: 14px;
+  }
+
+  .nutritional-container .day-header {
+    padding: 12px 16px;
+  }
+
+  .nutritional-container .day-label {
+    font-size: 18px;
+  }
+
+  .nutritional-container .narrative-content {
+    padding: 16px;
+  }
+
+  .nutritional-container .daily-tips,
+  .nutritional-container .narrative-closing {
+    padding: 20px;
+  }
+}

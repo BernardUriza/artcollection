@@ -39,4 +39,14 @@ export const pages = [
     title: 'The Society of Lucid Exhaustion™',
     description: 'Unofficial intranet of the most functional team in the least functional system. A satirical exploration of corporate reality.',
   },
+  {
+    uuid: '47461f14-2924-4ef3-914b-1f1be15aed99',
+    title: 'Plan Alimenticio Semanal',
+    description: 'Plan nutricional completo basado en plantas con meal prep para la semana. Incluye recetas, ingredientes y rituales diarios.',
+  },
+  {
+    uuid: '70228044-e974-49d4-9e7e-7cbd569f8e58',
+    title: 'Guía de Nutrición Basada en Hábitos',
+    description: 'Programa de 10 semanas para construir hábitos alimenticios sostenibles. Psicología del cambio, educación nutricional y autonomía a largo plazo.',
+  },
 ];

@@ -9,6 +9,8 @@ import AurityDeck from './pages/AurityDeck';
 import FICold from './pages/FICold';
 import FIBioML from './pages/FIBioML';
 import LaSociedadCansados from './pages/LaSociedadCansados';
+import NutritionalPlan from './pages/NutritionalPlan';
+import NutritionGuide from './pages/NutritionGuide';
 import PWAStatusBadge from './components/PWAStatusBadge/PWAStatusBadge';
 
 function App() {
@@ -67,6 +69,14 @@ function App() {
         <Route
           path="/page/2a196ccc-d7c5-8126-b582-dbafc084a389"
           element={<LaSociedadCansados />}
+        />
+        <Route
+          path="/page/47461f14-2924-4ef3-914b-1f1be15aed99"
+          element={<NutritionalPlan />}
+        />
+        <Route
+          path="/page/70228044-e974-49d4-9e7e-7cbd569f8e58"
+          element={<NutritionGuide />}
         />
       </Routes>
     </Router>
