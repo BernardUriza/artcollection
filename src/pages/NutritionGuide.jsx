@@ -19,18 +19,21 @@ function NutritionGuide() {
         <div className="hero-content">
           <h1>Guía de Nutrición Basada en Hábitos</h1>
           <p className="hero-subtitle">Construye una relación sostenible con la comida en 10 semanas</p>
+          <div className="profile-badge">
+            <p><strong>Perfil:</strong> 28 años | 80kg, 1.80m | Vegano/Frutariano | Objetivo: Pérdida de Grasa</p>
+          </div>
           <div className="hero-stats">
             <div className="stat-card">
               <span className="stat-number">10</span>
-              <span className="stat-label">Semanas</span>
+              <span className="stat-label">Semanas para dominar hábitos</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number">66</span>
-              <span className="stat-label">Días promedio para formar un hábito</span>
+              <span className="stat-number">2000</span>
+              <span className="stat-label">Calorías objetivo (déficit moderado)</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number">30</span>
-              <span className="stat-label">Minutos de gym diario</span>
+              <span className="stat-number">7</span>
+              <span className="stat-label">Horas de gym por semana</span>
             </div>
           </div>
         </div>
@@ -94,62 +97,65 @@ function NutritionGuide() {
 
       {/* Your Schedule Section */}
       <section className="schedule-section">
-        <h2>Tu Horario: 10am - 8pm de Trabajo</h2>
+        <h2>Tu Horario Personalizado: Comidas en Tarde/Noche</h2>
+        <div className="schedule-note">
+          <p><strong>Nota sobre TLP:</strong> La consistencia en horarios ayuda a regular el estado de ánimo. Estos tiempos son anclas de estabilidad.</p>
+        </div>
         <div className="timeline">
           <div className="timeline-item">
-            <div className="time">6:30am</div>
+            <div className="time">10:00am</div>
             <div className="activity wake">
               <h4>Despertar</h4>
-              <p>Vaso de agua + 5 min de stretching</p>
+              <p>Vaso de agua grande + 5 min respiración consciente</p>
             </div>
           </div>
           <div className="timeline-item">
-            <div className="time">7:00am</div>
+            <div className="time">11:00am</div>
             <div className="activity breakfast">
-              <h4>Desayuno Calmado</h4>
-              <p>20-30 min para comer sin prisa</p>
+              <h4>Primera Comida (Ligera)</h4>
+              <p>Smoothie de frutas o fruta entera + nueces</p>
             </div>
           </div>
           <div className="timeline-item">
-            <div className="time">9:30am</div>
-            <div className="activity gym">
-              <h4>🏋️ Gym (30 min)</h4>
-              <p>Entrenamiento de fuerza o cardio antes del trabajo</p>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="time">10:00am</div>
-            <div className="activity work">
-              <h4>Inicio de Trabajo</h4>
-              <p>Lleva snacks preparados</p>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="time">1:00pm</div>
+            <div className="time">2:00pm</div>
             <div className="activity lunch">
-              <h4>Comida</h4>
-              <p>Meal prep del domingo, 30-40 min</p>
+              <h4>Comida Principal</h4>
+              <p>Poke bowl, burrito vegano, o ensalada abundante</p>
             </div>
           </div>
           <div className="timeline-item">
-            <div className="time">4:00pm</div>
+            <div className="time">5:00pm</div>
             <div className="activity snack">
-              <h4>Snack</h4>
-              <p>Fruta + nueces pre-porcionadas</p>
+              <h4>Pre-Workout</h4>
+              <p>Plátano + dátiles (energía rápida)</p>
             </div>
           </div>
           <div className="timeline-item">
-            <div className="time">8:00pm</div>
+            <div className="time">5:30pm</div>
+            <div className="activity gym">
+              <h4>🏋️ Gym (1 hora)</h4>
+              <p>4 días/semana: Fuerza | 2 días/semana: Cardio | 1 día: Descanso activo</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="time">7:00pm</div>
             <div className="activity dinner">
-              <h4>Cena en Casa</h4>
-              <p>30 min de preparación simple</p>
+              <h4>Post-Workout + Cena</h4>
+              <p>Tacos de berenjena, bowl de quinoa, o burrito</p>
             </div>
           </div>
           <div className="timeline-item">
-            <div className="time">9:30pm</div>
+            <div className="time">9:00pm</div>
+            <div className="activity snack">
+              <h4>Snack Nocturno (opcional)</h4>
+              <p>Fruta si tienes hambre real, no emocional</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="time">10:30pm</div>
             <div className="activity prep">
-              <h4>Prep para Mañana</h4>
-              <p>15 min: empacar snacks y revisar plan</p>
+              <h4>Ritual de Cierre</h4>
+              <p>10 min: Revisar qué comiste hoy, planear mañana, journaling</p>
             </div>
           </div>
         </div>
@@ -177,18 +183,22 @@ function NutritionGuide() {
             <div className="week-card">
               <h3>Semana 1: Hidratación Consciente</h3>
               <div className="habit-detail">
-                <p className="habit-mission"><strong>Misión:</strong> Beber 1.5L de agua al día</p>
+                <p className="habit-mission"><strong>Misión:</strong> Beber 2.5L de agua al día (esencial para pérdida de grasa)</p>
                 <div className="habit-how">
                   <h4>Cómo hacerlo:</h4>
                   <ul>
-                    <li><strong>Señal:</strong> Pon 3 botellas de 500ml en lugares visibles (escritorio, gym bag, mesa de noche)</li>
-                    <li><strong>Rutina:</strong> Termina 1 botella antes de las 12pm, 1 antes de las 5pm, 1 antes de dormir</li>
-                    <li><strong>Recompensa:</strong> Marca una ✓ en tu calendario cada día que completes</li>
+                    <li><strong>Señal:</strong> Pon 1 botella de 1L en tu escritorio, 1 en el gym, 1 en la mesa de noche</li>
+                    <li><strong>Rutina:</strong> 1L antes de las 2pm, 1L entre 2-7pm, 500ml después del gym</li>
+                    <li><strong>Recompensa:</strong> Marca ✓ en tracker + mejor claridad mental (crucial con TLP)</li>
                   </ul>
                 </div>
                 <div className="habit-why">
-                  <h4>¿Por qué primero?</h4>
-                  <p>La hidratación es el hábito más fácil de implementar y tiene efectos inmediatos en energía y saciedad. Es tu primera victoria rápida que construye confianza.</p>
+                  <h4>¿Por qué 2.5L para ti?</h4>
+                  <p>Con 80kg y objetivo de pérdida de grasa, necesitas 30-35ml/kg. El agua ayuda a metabolizar grasa, reduce retención de líquidos, y mejora regulación emocional (importante con TLP). Además, comer frutas te da ~500ml adicionales.</p>
+                </div>
+                <div className="habit-tlp">
+                  <h4>🧠 Consideración TLP:</h4>
+                  <p>La deshidratación amplifica irritabilidad y dysregulación. Agua constante = estabilidad emocional más fácil.</p>
                 </div>
               </div>
             </div>
@@ -244,22 +254,26 @@ function NutritionGuide() {
 
           {activeWeek === 4 && (
             <div className="week-card">
-              <h3>Semana 4: Proteína en Cada Comida</h3>
+              <h3>Semana 4: Proteína Vegana Estratégica</h3>
               <div className="habit-detail">
-                <p className="habit-mission"><strong>Misión:</strong> Incluir 1 puño de proteína vegetal en cada comida principal</p>
+                <p className="habit-mission"><strong>Misión:</strong> 120-140g de proteína al día (1.5-1.75g/kg para pérdida de grasa + músculo)</p>
                 <div className="habit-how">
-                  <h4>Opciones Simples:</h4>
+                  <h4>Opciones Simples para Delivery/Rápido:</h4>
                   <ul>
-                    <li>Frijoles negros/bayos/pintos (1 taza cocida)</li>
-                    <li>Lentejas (1 taza cocida)</li>
-                    <li>Garbanzos (1 taza cocida)</li>
-                    <li>Tofu (½-1 taza)</li>
-                    <li>Edamame (1 taza)</li>
+                    <li><strong>Poke Bowl:</strong> Pide doble tofu/edamame (~30g proteína)</li>
+                    <li><strong>Burrito vegano:</strong> Frijoles negros + guacamole + quinoa (~25g)</li>
+                    <li><strong>Tacos de berenjena:</strong> Agrega hummus o frijol refritos (~20g por 3 tacos)</li>
+                    <li><strong>Smoothie casero:</strong> 2 plátanos + 2 cucharadas mantequilla de cacahuate + leche de soya (~18g)</li>
+                    <li><strong>Snack fácil:</strong> Trail mix (nueces + semillas) (~10g por puño)</li>
                   </ul>
                 </div>
+                <div className="habit-distribution">
+                  <h4>Distribución Diaria:</h4>
+                  <p>11am: 20-25g | 2pm: 40-50g | 5pm: 15g | 7pm: 40-50g | Total: ~130g</p>
+                </div>
                 <div className="habit-why">
-                  <h4>¿Por qué importa?</h4>
-                  <p>Proteína = saciedad prolongada. Evitas el bajón de energía a las 3pm y los antojos nocturnos. Esencial para recuperación muscular post-gym.</p>
+                  <h4>¿Por qué tanta proteína vegana?</h4>
+                  <p>En déficit calórico, proteína alta preserva músculo mientras pierdes grasa. Las proteínas vegetales tienen menor biodisponibilidad (~70-80% vs animal), así que necesitas un poco más. Esto te mantendrá saciado y recuperando bien del gym.</p>
                 </div>
               </div>
             </div>
@@ -434,65 +448,131 @@ function NutritionGuide() {
 
       {/* Gym Integration */}
       <section className="gym-section">
-        <h2>Integrando 30 Minutos de Gym</h2>
+        <h2>Plan de Gym: De 3 a 7 Horas/Semana</h2>
+        <div className="gym-progression">
+          <h3>Progresión de 4 Semanas</h3>
+          <div className="progression-timeline">
+            <div className="prog-week">
+              <strong>Semanas 1-2:</strong> 4 días (4.5h total) - Adaptación
+            </div>
+            <div className="prog-week">
+              <strong>Semanas 3-4:</strong> 5 días (6h total) - Incremento
+            </div>
+            <div className="prog-week">
+              <strong>Semana 5+:</strong> 6 días (7h total) - Volumen completo
+            </div>
+          </div>
+        </div>
+
         <div className="gym-split">
           <div className="gym-card">
-            <h3>Lunes / Miércoles / Viernes</h3>
-            <p className="workout-type">Fuerza (30 min)</p>
+            <h3>Lunes - Espalda + Bíceps</h3>
+            <p className="workout-type">Fuerza (60-75 min)</p>
             <div className="workout-breakdown">
               <ul>
-                <li>5 min: Calentamiento dinámico</li>
-                <li>20 min: Circuito de fuerza (3 rondas)
-                  <ul>
-                    <li>Sentadillas: 12 reps</li>
-                    <li>Push-ups: 10 reps</li>
-                    <li>Peso muerto (mancuernas): 10 reps</li>
-                    <li>Plancha: 30 seg</li>
-                  </ul>
-                </li>
-                <li>5 min: Estiramiento</li>
+                <li>Dominadas asistidas: 4x8-10</li>
+                <li>Remo con barra: 4x10-12</li>
+                <li>Pull-downs: 3x12-15</li>
+                <li>Curl con mancuernas: 3x12-15</li>
+                <li>Curl martillo: 3x12-15</li>
               </ul>
             </div>
           </div>
+
           <div className="gym-card">
-            <h3>Martes / Jueves</h3>
-            <p className="workout-type">Cardio (30 min)</p>
+            <h3>Martes - Piernas</h3>
+            <p className="workout-type">Fuerza (60-75 min)</p>
             <div className="workout-breakdown">
               <ul>
-                <li>5 min: Calentamiento progresivo</li>
-                <li>20 min: HIIT o cardio moderado
-                  <ul>
-                    <li>Opción 1: 20 seg sprint / 40 seg caminata (20 ciclos)</li>
-                    <li>Opción 2: Trote constante moderado</li>
-                    <li>Opción 3: Bicicleta o elíptica</li>
-                  </ul>
-                </li>
-                <li>5 min: Cool down y estiramiento</li>
+                <li>Sentadillas: 4x10-12</li>
+                <li>Peso muerto rumano: 4x10-12</li>
+                <li>Prensa: 3x12-15</li>
+                <li>Curl femoral: 3x12-15</li>
+                <li>Pantorrillas: 4x15-20</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="gym-card">
+            <h3>Miércoles - LISS Cardio</h3>
+            <p className="workout-type">Quema de grasa (45 min)</p>
+            <div className="workout-breakdown">
+              <ul>
+                <li>Caminadora inclinada (12-15%): 30-40 min</li>
+                <li>Zona 2 cardio (60-70% FC máx)</li>
+                <li>O bicicleta estacionaria a ritmo constante</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="gym-card">
+            <h3>Jueves - Pecho + Tríceps</h3>
+            <p className="workout-type">Fuerza (60-75 min)</p>
+            <div className="workout-breakdown">
+              <ul>
+                <li>Press banca/plano: 4x10-12</li>
+                <li>Press inclinado: 4x10-12</li>
+                <li>Aperturas: 3x12-15</li>
+                <li>Fondos en paralelas: 3x8-12</li>
+                <li>Extensiones de tríceps: 3x12-15</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="gym-card">
+            <h3>Viernes - Hombros + Abs</h3>
+            <p className="workout-type">Fuerza (60 min)</p>
+            <div className="workout-breakdown">
+              <ul>
+                <li>Press militar: 4x10-12</li>
+                <li>Elevaciones laterales: 4x12-15</li>
+                <li>Elevaciones frontales: 3x12-15</li>
+                <li>Pájaros: 3x12-15</li>
+                <li>Circuito abs: 3 rondas (plancha, crunches, bicicleta)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="gym-card">
+            <h3>Sábado - HIIT o Descanso Activo</h3>
+            <p className="workout-type">Opcional (30-45 min)</p>
+            <div className="workout-breakdown">
+              <ul>
+                <li>HIIT: 20 seg sprint / 40 seg descanso x 15-20 rondas</li>
+                <li>O yoga/stretching profundo</li>
+                <li>O caminar 5-10k pasos</li>
               </ul>
             </div>
           </div>
         </div>
+
         <div className="gym-nutrition">
-          <h3>Nutrición para Gym 9:30am</h3>
+          <h3>Nutrición para Gym 5:30pm</h3>
           <div className="nutrition-timing">
             <div className="timing-card">
-              <h4>Pre-Workout (9:00am)</h4>
-              <p>Carbohidrato simple para energía rápida:</p>
+              <h4>Pre-Workout (5:00pm - 30min antes)</h4>
+              <p>Carbohidratos rápidos + bajo en fibra/grasa:</p>
               <ul>
-                <li>1 plátano</li>
-                <li>2 dátiles + agua</li>
-                <li>½ taza avena cocida</li>
+                <li>2-3 plátanos maduros</li>
+                <li>4-5 dátiles + agua</li>
+                <li>Smoothie: 2 plátanos + 1 taza mango congelado</li>
+                <li><strong>Evita:</strong> Nueces, semillas, ensaladas (te harán sentir pesado)</li>
               </ul>
             </div>
             <div className="timing-card">
-              <h4>Post-Workout (10:15am)</h4>
-              <p>Proteína + Carbohidrato para recuperación:</p>
+              <h4>Post-Workout (7:00pm - dentro de 1h)</h4>
+              <p>Proteína + Carbohidratos para recuperación:</p>
               <ul>
-                <li>Smoothie: plátano + leche de soya + avena</li>
-                <li>Tostada integral + hummus + plátano</li>
-                <li>Avena + linaza + fruta</li>
+                <li><strong>Delivery:</strong> Burrito vegano grande (frijoles + arroz + guac)</li>
+                <li><strong>Delivery:</strong> Poke bowl (arroz + edamame + tofu + verduras)</li>
+                <li><strong>Casero rápido:</strong> Tacos de berenjena + frijoles refritos</li>
+                <li><strong>Objetivo:</strong> 40-50g proteína + 60-80g carbohidratos</li>
               </ul>
             </div>
+          </div>
+          <div className="gym-tlp-note">
+            <h4>🧠 Nota sobre TLP y Gym:</h4>
+            <p>El ejercicio es uno de los mejores reguladores emocionales. Si un día te sientes dysregulado, reduce intensidad pero NO saltes el gym. Incluso 20 min de caminata cuenta. La consistencia &gt; intensidad para salud mental.</p>
           </div>
         </div>
       </section>
