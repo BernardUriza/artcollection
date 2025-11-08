@@ -3,7 +3,7 @@ import './NutritionalPlan.css';
 
 function NutritionalPlan() {
   const openPrintableVersion = () => {
-    window.open('/plan-nutricional-imprimible.html', '_blank');
+    window.open('/page/47461f14-2924-4ef3-914b-1f1be15aed99/print.html', '_blank');
   };
 
   return (
