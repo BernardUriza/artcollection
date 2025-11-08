@@ -1,0 +1,498 @@
+/* Base Styles */
+.weekly-plan {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.plan-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid #667eea;
+}
+
+.plan-header h1 {
+  font-size: 32px;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 700;
+}
+
+.print-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Tips Box */
+.tips-box {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  border-left: 4px solid #ffc107;
+}
+
+.tips-box h3 {
+  margin: 0 0 16px 0;
+  color: #2d3748;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tips-grid-small {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.tip-item {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.tip-item strong {
+  color: #2d3748;
+}
+
+/* Table */
+.meal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+.meal-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 14px 10px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #5568d3;
+  font-size: 14px;
+}
+
+.meal-table th:first-child {
+  width: 3%;
+  text-align: center;
+}
+
+.meal-table th:not(:first-child) {
+  width: 19.4%;
+}
+
+.meal-table td {
+  padding: 12px 10px;
+  border: 1px solid #e2e8f0;
+  vertical-align: top;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.meal-table tr:nth-child(even) {
+  background: #f7fafc;
+}
+
+.day-cell {
+  font-weight: 700;
+  color: #2d3748;
+  background: linear-gradient(135deg, #e6f3ff 0%, #d0e8ff 100%) !important;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Shopping Section */
+.shopping-section {
+  margin-bottom: 40px;
+}
+
+.shopping-section h2 {
+  font-size: 28px;
+  color: #2d3748;
+  margin-bottom: 24px;
+  font-weight: 700;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 12px;
+}
+
+.shopping-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.shopping-category {
+  background: #f7fafc;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.shopping-category h3 {
+  font-size: 16px;
+  color: #2d3748;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.shopping-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopping-category li {
+  padding: 6px 0;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.5;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.shopping-category li:last-child {
+  border-bottom: none;
+}
+
+/* Simple Tips */
+.simple-tips {
+  margin-bottom: 40px;
+}
+
+.simple-tips h2 {
+  font-size: 28px;
+  color: #2d3748;
+  margin-bottom: 24px;
+  font-weight: 700;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 12px;
+}
+
+.tips-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.tip-column {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.tip-column:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.tip-column h3 {
+  font-size: 18px;
+  color: #2d3748;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.tip-column p {
+  color: #4a5568;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.tip-column ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.tip-column li {
+  padding: 4px 0;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tip-benefit {
+  background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 12px;
+  border-left: 3px solid #00b894;
+}
+
+/* Tracking Section */
+.tracking-section {
+  margin-bottom: 32px;
+  background: #f7fafc;
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.tracking-section h2 {
+  font-size: 24px;
+  color: #2d3748;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.tracking-note {
+  color: #4a5568;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.checkbox-week {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkbox-week label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #2d3748;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.checkbox-week input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+/* Footer */
+.plan-footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 2px solid #e2e8f0;
+  text-align: center;
+}
+
+.plan-footer p {
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 8px 0;
+}
+
+/* Print-only elements (hidden by default) */
+.print-only {
+  display: none;
+}
+
+/* Print Styles */
+@media print {
+  .weekly-plan {
+    background: white;
+    padding: 0;
+  }
+
+  .plan-container {
+    max-width: 100%;
+    padding: 20px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  /* Hide screen-only elements */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Show print-only elements */
+  .print-only {
+    display: block !important;
+  }
+
+  .print-only h1 {
+    font-size: 28px;
+    color: #000;
+    margin-bottom: 8px;
+    text-align: center;
+    border-bottom: 3px solid #000;
+    padding-bottom: 12px;
+  }
+
+  .print-date {
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  /* Tips box for print */
+  .tips-box {
+    background: #f0f0f0;
+    border-left-color: #666;
+    page-break-inside: avoid;
+  }
+
+  /* Table adjustments */
+  .meal-table {
+    font-size: 11px;
+    page-break-inside: auto;
+  }
+
+  .meal-table th {
+    background: #333 !important;
+    color: white !important;
+    border: 1px solid #000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .meal-table td {
+    border: 1px solid #666;
+  }
+
+  .day-cell {
+    background: #e0e0e0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .meal-table tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  /* Shopping section */
+  .shopping-section {
+    page-break-before: always;
+  }
+
+  .shopping-category {
+    background: #fafafa;
+    border-left-color: #666;
+    page-break-inside: avoid;
+  }
+
+  /* Tips columns */
+  .simple-tips {
+    page-break-before: always;
+  }
+
+  .tip-column {
+    border-color: #999;
+    page-break-inside: avoid;
+  }
+
+  .tip-benefit {
+    background: #e5e5e5;
+    border-left-color: #666;
+  }
+
+  /* Print tracking checkboxes */
+  .tracking-print {
+    margin-top: 30px;
+    page-break-inside: avoid;
+  }
+
+  .tracking-print h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 8px;
+  }
+
+  .checkbox-print-week {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .checkbox-print-week div {
+    padding: 8px 0;
+  }
+
+  /* Footer */
+  .plan-footer {
+    margin-top: 30px;
+    border-top: 2px solid #999;
+  }
+
+  /* Avoid page breaks in certain elements */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plan-container {
+    padding: 20px;
+  }
+
+  .plan-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .print-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .meal-table {
+    font-size: 11px;
+  }
+
+  .meal-table th,
+  .meal-table td {
+    padding: 8px 6px;
+  }
+
+  .tips-grid-small {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-week {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

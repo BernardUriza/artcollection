@@ -11,6 +11,7 @@ import FIBioML from './pages/FIBioML';
 import LaSociedadCansados from './pages/LaSociedadCansados';
 import NutritionalPlan from './pages/NutritionalPlan';
 import NutritionGuide from './pages/NutritionGuide';
+import WeeklyMealPlan from './pages/WeeklyMealPlan';
 import PWAStatusBadge from './components/PWAStatusBadge/PWAStatusBadge';
 
 function App() {
@@ -77,6 +78,10 @@ function App() {
         <Route
           path="/page/70228044-e974-49d4-9e7e-7cbd569f8e58"
           element={<NutritionGuide />}
+        />
+        <Route
+          path="/page/093ba8bf-49b9-4fff-9f8e-90ffc52919ff"
+          element={<WeeklyMealPlan />}
         />
       </Routes>
     </Router>

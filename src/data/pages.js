@@ -49,4 +49,9 @@ export const pages = [
     title: 'Guía de Nutrición Basada en Hábitos',
     description: 'Programa de 10 semanas para construir hábitos alimenticios sostenibles. Psicología del cambio, educación nutricional y autonomía a largo plazo.',
   },
+  {
+    uuid: '093ba8bf-49b9-4fff-9f8e-90ffc52919ff',
+    title: 'Plan Semanal Simplificado (Imprimible)',
+    description: 'Plan alimenticio semanal tradicional con tips educativos sutiles. Optimizado para imprimir y seguir fácilmente.',
+  },
 ];
