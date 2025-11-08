@@ -142,147 +142,170 @@
             margin-right: 8px;
         }
 
-        /* Narrative Plan Styles - Grayscale */
+        /* Narrative Plan Styles - Snake Timeline */
         .narrative-plan {
-            margin-top: 32px;
+            margin-top: 24px;
         }
 
         .narrative-intro {
             background: #e8e8e8;
             color: #000;
-            padding: 32px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-            border: 2px solid #999;
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid #999;
         }
 
         .narrative-subtitle {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 6px;
             letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
 
         .narrative-text {
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 10px;
+            line-height: 1.4;
         }
 
-        .day-narrative {
+        /* Snake Timeline Layout */
+        .timeline-snake {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .day-card {
             background: white;
             border: 1px solid #999;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            overflow: hidden;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 8px;
+            line-height: 1.3;
+            page-break-inside: avoid;
         }
 
-        .day-header {
+        .day-card:nth-child(5),
+        .day-card:nth-child(6),
+        .day-card:nth-child(7) {
+            grid-column: span 1;
+        }
+
+        /* Reverse order for second row to create snake effect */
+        .day-card:nth-child(5) {
+            order: 7;
+        }
+        .day-card:nth-child(6) {
+            order: 6;
+        }
+        .day-card:nth-child(7) {
+            order: 5;
+        }
+
+        .day-card.prep-day {
+            background: #f5f5f5;
+            border: 1px solid #666;
+        }
+
+        .day-card-header {
             background: #d0d0d0;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #999;
+            padding: 4px 6px;
+            margin: -8px -8px 6px -8px;
+            border-radius: 3px 3px 0 0;
+            border-bottom: 1px solid #999;
         }
 
-        .day-label {
-            font-size: 20px;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: 0.5px;
-        }
-
-        .prep-badge {
-            background: #666;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-        }
-
-        .meal-prep-day .day-header {
+        .day-card.prep-day .day-card-header {
             background: #b8b8b8;
         }
 
-        .narrative-content {
-            padding: 24px;
-        }
-
-        .narrative-content p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #333;
-            margin-bottom: 12px;
-        }
-
-        .narrative-content strong {
-            color: #000;
-            font-weight: 600;
-        }
-
-        .ritual {
-            background: #f5f5f5;
-            border-left: 4px solid #666;
-            padding: 16px 20px;
-            margin-top: 20px;
-            border-radius: 4px;
-        }
-
-        .meal-prep {
-            border-left-color: #999;
-            background: #f8f8f8;
-        }
-
-        .ritual-title {
-            font-size: 14px;
+        .day-card-title {
+            font-size: 11px;
             font-weight: 700;
             color: #000;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .ritual ul {
-            list-style: none;
-            padding-left: 0;
             margin: 0;
         }
 
-        .ritual li {
-            padding: 6px 0;
-            font-size: 13px;
-            color: #333;
-            position: relative;
-            padding-left: 24px;
+        .prep-tag {
+            font-size: 7px;
+            background: #666;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            margin-left: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
-        .ritual li:before {
+        .meal-item {
+            margin-bottom: 4px;
+        }
+
+        .meal-label {
+            font-weight: 700;
+            color: #000;
+            font-size: 8px;
+        }
+
+        .meal-desc {
+            color: #333;
+            font-size: 7px;
+            margin-left: 0;
+        }
+
+        .ritual-compact {
+            background: #f5f5f5;
+            border-left: 2px solid #666;
+            padding: 4px 6px;
+            margin-top: 6px;
+            font-size: 7px;
+        }
+
+        .ritual-compact-title {
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2px;
+            font-size: 7px;
+        }
+
+        .ritual-compact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ritual-compact li {
+            padding: 1px 0;
+            padding-left: 8px;
+            position: relative;
+        }
+
+        .ritual-compact li:before {
             content: "→";
             position: absolute;
             left: 0;
-            color: #666;
-            font-weight: bold;
+            font-size: 7px;
         }
 
         .daily-tips {
             background: #e5e5e5;
-            padding: 28px 32px;
-            border-radius: 8px;
-            margin: 32px 0;
-            border: 2px solid #999;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin: 16px 0;
+            border: 1px solid #999;
         }
 
         .daily-tips h3 {
             color: #000;
-            font-size: 22px;
+            font-size: 12px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             letter-spacing: 0.3px;
-            border-bottom: 2px solid #666;
-            padding-bottom: 8px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 4px;
+            text-transform: uppercase;
         }
 
         .daily-tips ul {
@@ -291,12 +314,12 @@
         }
 
         .daily-tips li {
-            padding: 10px 0;
-            font-size: 14px;
+            padding: 3px 0;
+            font-size: 8px;
             color: #000;
-            line-height: 1.6;
+            line-height: 1.4;
             position: relative;
-            padding-left: 28px;
+            padding-left: 12px;
         }
 
         .daily-tips li:before {
@@ -305,21 +328,21 @@
             left: 0;
             color: #000;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 10px;
         }
 
         .narrative-closing {
             background: #d8d8d8;
-            padding: 28px 32px;
-            border-radius: 8px;
+            padding: 12px 16px;
+            border-radius: 4px;
             text-align: center;
-            margin-top: 32px;
-            border: 2px solid #999;
+            margin-top: 12px;
+            border: 1px solid #999;
         }
 
         .narrative-closing p {
-            font-size: 17px;
-            line-height: 1.8;
+            font-size: 9px;
+            line-height: 1.4;
             color: #000;
             font-weight: 500;
             font-style: italic;
@@ -603,165 +626,137 @@
         <h2>Plan Narrativo de Nutrición</h2>
         <div class="narrative-plan">
             <div class="narrative-intro">
-                <p class="narrative-subtitle">Preparación los fines de semana, tranquilidad entre semana. No es médico, solo educativo.</p>
-                <p class="narrative-text">Sábado y domingo son los días para organizarte. En total, unas 2 a 4 horas entre los dos días, para que entre semana solo dediques una horita en la noche a dejar todo listo: tu cena y lo de mañana. Así no corres y comes rico.</p>
+                <p class="narrative-subtitle">Preparación fines de semana, tranquilidad entre semana</p>
+                <p class="narrative-text">Sábado y domingo: 2-4 hrs total. Entre semana: 1 hr/noche para cena y prep mañana siguiente.</p>
             </div>
 
-            <div class="day-narrative">
-                <div class="day-header">
-                    <span class="day-label">Lunes</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> calientas ½ taza de avena con agua, cuando espese apagas, le echas canela y encima un plátano en rebanadas. Tranquila, sin prisas.</p>
-                    <p><strong>Media mañana:</strong> una taza de melón bien frío.</p>
-                    <p><strong>Comida:</strong> tortillas calientes (unas 4 o 5) con frijoles enteros, nopales y pico de gallo. A un ladito, unas hojitas verdes.</p>
-                    <p><strong>Antes del ejercicio:</strong> un plátano y un dátil.</p>
-                    <p><strong>Después del ejercicio:</strong> una mandarina.</p>
-                    <p><strong>Cena:</strong> papas al horno (400–500 g) con brócoli al vapor y salsa roja. Si se te antoja, un pedacito de aguacate.</p>
-                    <div class="ritual">
-                        <p class="ritual-title">Ritual de noche (1 hora):</p>
+            <div class="timeline-snake">
+                <!-- Row 1: Lunes to Jueves (left to right) -->
+                <div class="day-card">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">LUN</h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Avena cocida ½tz + plátano + canela</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Melón 1tz + 10 cacahuates</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">4-5 tortillas + frijol 1tz + nopales</span></div>
+                    <div class="meal-item"><span class="meal-label">C2:</span> <span class="meal-desc">Manzana o 2 mandarinas</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">Papas horno 400g + brócoli</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Ritual 1hr:</div>
                         <ul>
-                            <li>Saca tus tuppers</li>
-                            <li>Calienta con un chorrito de agua</li>
-                            <li>Saltea verduras sin aceite</li>
-                            <li>Sirve tu cena y prepara desayuno y colaciones para el martes</li>
-                            <li>Lava lo que usaste y deja avena remojando o fruta lista</li>
+                            <li>Tuppers + recalentar</li>
+                            <li>Prep martes</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="day-narrative">
-                <div class="day-header">
-                    <span class="day-label">Martes</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> un licuado con 2 plátanos, papaya, agua y un puñito de espinaca. Si te dan ganas de masticar, acompáñalo con 1 o 2 tortillas.</p>
-                    <p><strong>Colación:</strong> 1 pera con una cucharada de semillas de calabaza.</p>
-                    <p><strong>Comida:</strong> arroz jazmín con garbanzos salteados con cebolla y pimiento; limón encima.</p>
-                    <p><strong>Antes del ejercicio:</strong> 2 mandarinas.</p>
-                    <p><strong>Después del ejercicio:</strong> un vaso de leche de soya sin azúcar.</p>
-                    <p><strong>Cena:</strong> 2 sopes horneados (sin grasa) con frijoles molidos, lechuga y salsa. Acompaña con un caldito sencillo de verduras.</p>
-                    <div class="ritual">
-                        <p class="ritual-title">Ritual de noche:</p>
+                <div class="day-card">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">MAR</h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Smoothie 2 plátanos + papaya + espinaca</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Pera + semillas calabaza 1cda</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">Arroz jazmín + garbanzo + verduras</span></div>
+                    <div class="meal-item"><span class="meal-label">C2:</span> <span class="meal-desc">Leche soya + dátil</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">2 sopes + frijol + lechuga</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Ritual:</div>
                         <ul>
-                            <li>Precalienta el comal</li>
-                            <li>Recalienta arroz y legumbre</li>
-                            <li>Pica verdura para el miércoles</li>
-                            <li>Porciona fruta</li>
-                            <li>Etiqueta dos tuppers: uno para la comida y otro para colaciones</li>
+                            <li>Recalentar</li>
+                            <li>Picar verdura miérc</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="day-narrative">
-                <div class="day-header">
-                    <span class="day-label">Miércoles</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> pan integral con plátano machacado o mermelada sin azúcar, y linaza espolvoreada.</p>
-                    <p><strong>Colación:</strong> una taza de sandía.</p>
-                    <p><strong>Comida:</strong> ensalada grande con lechugas, maíz, pepino, jitomate y tofu al vapor o frijoles. 3 o 4 tortillas al lado.</p>
-                    <p><strong>Antes del ejercicio:</strong> un plátano.</p>
-                    <p><strong>Después del ejercicio:</strong> un dátil y agua.</p>
-                    <p><strong>Cena:</strong> arroz rojo con lentejas guisadas y calabacitas con elote.</p>
-                    <div class="ritual">
-                        <p class="ritual-title">Ritual de noche:</p>
+                <div class="day-card">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">MIÉ</h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Pan integral + plátano + linaza</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Sandía 1tz</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">Ensalada + tofu/frijol + 3-4 tortillas</span></div>
+                    <div class="meal-item"><span class="meal-label">C2:</span> <span class="meal-desc">Plátano + 8 almendras</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">Arroz rojo + lentejas + calabacitas</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Ritual:</div>
                         <ul>
-                            <li>Cuece lentejas si necesitas</li>
-                            <li>Lava hojas verdes</li>
-                            <li>Arma tupper con ensalada lista para el jueves</li>
+                            <li>Cocer lentejas</li>
+                            <li>Armar tupper jueves</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="day-narrative">
-                <div class="day-header">
-                    <span class="day-label">Jueves</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> hotcakes de avena (1 plátano, ½ taza de avena y agua), sin aceite. Sirve con canela y fruta fresca.</p>
-                    <p><strong>Colación:</strong> 1 naranja y 1 dátil.</p>
-                    <p><strong>Comida:</strong> pasta con champiñones, espinaca y salsa de jitomate. Al lado, frijoles blancos.</p>
-                    <p><strong>Antes del ejercicio:</strong> melón.</p>
-                    <p><strong>Después del ejercicio:</strong> agua con sal y limón.</p>
-                    <p><strong>Cena:</strong> tostadas horneadas (unas 4) con tinga de setas, frijol molido y lechuga. Puedes agregar un poco de aguacate.</p>
-                    <div class="ritual">
-                        <p class="ritual-title">Ritual de noche:</p>
+                <div class="day-card">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">JUE</h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Hotcakes avena + plátano sin aceite</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Naranja + dátil</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">Pasta + champiñón + espinaca + frijol</span></div>
+                    <div class="meal-item"><span class="meal-label">C2:</span> <span class="meal-desc">Pepino/jícama limón</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">4 tostadas + tinga setas + frijol</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Ritual:</div>
                         <ul>
-                            <li>Hornea más tostadas si ya no hay</li>
-                            <li>Prepara salsa extra</li>
-                            <li>Deja lista la comida del viernes</li>
+                            <li>Hornear tostadas</li>
+                            <li>Prep viernes</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="day-narrative">
-                <div class="day-header">
-                    <span class="day-label">Viernes</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> smoothie de cacao (plátano, avena, leche de soya y una pizca de cacao).</p>
-                    <p><strong>Colación:</strong> piña o mango en cubitos.</p>
-                    <p><strong>Comida:</strong> papitas cambray al horno con frijoles bayos, pico de gallo y limón.</p>
-                    <p><strong>Antes del ejercicio:</strong> fruta (mandarinas o plátano).</p>
-                    <p><strong>Después del ejercicio:</strong> una manzana.</p>
-                    <p><strong>Cena:</strong> quesadillas en comal (sin aceite) con frijoles, calabacitas y cebolla. Salsa verde encima.</p>
-                    <div class="ritual">
-                        <p class="ritual-title">Ritual de noche:</p>
+                <!-- Row 2: Domingo to Viernes (right to left - snake) -->
+                <div class="day-card prep-day">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">DOM <span class="prep-tag">4hrs</span></h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Smoothie plátano + papaya</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Pera + semillas</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">Pasta + champiñón + garbanzo</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">6-8 tortillas + frijol + calabacitas</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Meal prep 4hrs:</div>
                         <ul>
-                            <li>Remoja frijoles si los usarás el domingo</li>
-                            <li>Revisa qué frutas hay</li>
-                            <li>Congela lo que haya sobrado</li>
+                            <li>Cocinar granos/legumbres</li>
+                            <li>Asar verduras</li>
+                            <li>Salsas + fruta</li>
+                            <li>Porcionar todo semana</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="day-narrative meal-prep-day">
-                <div class="day-header">
-                    <span class="day-label">Sábado</span>
-                    <span class="prep-badge">Día de cocina</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> avena con plátano y canela.</p>
-                    <p><strong>Colación:</strong> uvas o melón.</p>
-                    <p><strong>Comida:</strong> arroz con frijol negro, nopales, pico de gallo y tortillas.</p>
-                    <p><strong>Cena:</strong> papas o camote al horno con brócoli y salsa roja.</p>
-                    <div class="ritual meal-prep">
-                        <p class="ritual-title">Meal prep (2.5 horas aprox):</p>
+                <div class="day-card prep-day">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">SÁB <span class="prep-tag">2.5hrs</span></h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Avena + plátano + canela</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Uvas/melón + almendras</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">Arroz + frijol negro + nopales</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">Papas/camote + brócoli</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Meal prep 2.5hrs:</div>
                         <ul>
-                            <li>Cocina arroz y lentejas</li>
-                            <li>Asa papas o camote</li>
-                            <li>Prepara salsas</li>
-                            <li>Lava y porciona fruta</li>
-                            <li>Etiqueta tuppers para los días siguientes</li>
+                            <li>Cocinar arroz/lentejas</li>
+                            <li>Asar papas</li>
+                            <li>Prep salsas</li>
+                            <li>Etiquetar tuppers</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="day-narrative meal-prep-day">
-                <div class="day-header">
-                    <span class="day-label">Domingo</span>
-                    <span class="prep-badge">Cocina más larga</span>
-                </div>
-                <div class="narrative-content">
-                    <p><strong>Desayuno:</strong> smoothie con plátano, papaya, agua y espinaca, o fruta entera.</p>
-                    <p><strong>Colación:</strong> pera con semillas de calabaza.</p>
-                    <p><strong>Comida:</strong> pasta con champiñones y jitomate; garbanzos al lado.</p>
-                    <p><strong>Cena:</strong> tortillas con frijol, calabacitas con elote y salsa verde.</p>
-                    <div class="ritual meal-prep">
-                        <p class="ritual-title">Meal prep (4 horas):</p>
+                <div class="day-card">
+                    <div class="day-card-header">
+                        <h3 class="day-card-title">VIE</h3>
+                    </div>
+                    <div class="meal-item"><span class="meal-label">D:</span> <span class="meal-desc">Smoothie cacao + plátano + avena</span></div>
+                    <div class="meal-item"><span class="meal-label">C1:</span> <span class="meal-desc">Piña/mango 1tz</span></div>
+                    <div class="meal-item"><span class="meal-label">Com:</span> <span class="meal-desc">Papas cambray 500g + frijol bayo</span></div>
+                    <div class="meal-item"><span class="meal-label">C2:</span> <span class="meal-desc">Zanahoria/pepino + hummus</span></div>
+                    <div class="meal-item"><span class="meal-label">Cena:</span> <span class="meal-desc">4 quesadillas + frijol + calabacitas</span></div>
+                    <div class="ritual-compact">
+                        <div class="ritual-compact-title">Ritual:</div>
                         <ul>
-                            <li>Cocina arroz, frijoles o lentejas</li>
-                            <li>Asa papas, elote o verduras</li>
-                            <li>Prepara salsas grandes y fruta</li>
-                            <li>Porciona todo y etiqueta</li>
-                            <li>Deja lista la comida del lunes y un kit para la cena</li>
+                            <li>Remojar frijoles</li>
+                            <li>Revisar frutas</li>
                         </ul>
                     </div>
                 </div>
