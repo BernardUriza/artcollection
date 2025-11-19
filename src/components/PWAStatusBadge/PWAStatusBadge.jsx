@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 function PWAStatusBadge() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [cacheSize, setCacheSize] = useState('Calculando...');
+  const [swRegistration, setSwRegistration] = useState(null);
   const [syncInfo, setSyncInfo] = useState({
     lastSync: null,
     totalPages: 0,
@@ -35,6 +38,62 @@ function PWAStatusBadge() {
         }
       })
       .catch(e => console.error('Error fetching pages:', e));
+  };
+
+  // Calculate cache size
+  const calculateCacheSize = async () => {
+    if ('caches' in window) {
+      try {
+        const cacheNames = await caches.keys();
+        let totalSize = 0;
+
+        for (const cacheName of cacheNames) {
+          const cache = await caches.open(cacheName);
+          const keys = await cache.keys();
+
+          for (const request of keys) {
+            const response = await cache.match(request);
+            if (response) {
+              const blob = await response.blob();
+              totalSize += blob.size;
+            }
+          }
+        }
+
+        const sizeInMB = (totalSize / (1024 * 1024)).toFixed(2);
+        setCacheSize(`${sizeInMB} MB`);
+      } catch (e) {
+        console.error('Error calculating cache size:', e);
+        setCacheSize('N/A');
+      }
+    }
+  };
+
+  // Clear cache
+  const clearCache = async () => {
+    if (confirm('¿Estás seguro de que quieres limpiar el caché? Esto puede hacer que la app sea más lenta hasta que se vuelva a cachear.')) {
+      try {
+        const cacheNames = await caches.keys();
+        await Promise.all(cacheNames.map(name => caches.delete(name)));
+        setCacheSize('0 MB');
+        alert('Caché limpiado exitosamente');
+        window.location.reload();
+      } catch (e) {
+        console.error('Error clearing cache:', e);
+        alert('Error al limpiar el caché');
+      }
+    }
+  };
+
+  // Update PWA
+  const updatePWA = () => {
+    if (swRegistration && swRegistration.waiting) {
+      swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      setUpdateAvailable(false);
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    }
   };
 
   useEffect(() => {
@@ -92,8 +151,32 @@ function PWAStatusBadge() {
     console.log('Component mounted, triggering initial sync...');
     syncPages();
 
-    // Listen for service worker messages
+    // Calculate cache size
+    calculateCacheSize();
+
+    // Listen for service worker messages and updates
     if ('serviceWorker' in navigator) {
+      // Get service worker registration
+      navigator.serviceWorker.ready.then((registration) => {
+        setSwRegistration(registration);
+
+        // Check for updates
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              setUpdateAvailable(true);
+              console.log('New service worker available');
+            }
+          });
+        });
+
+        // Check if there's already an update waiting
+        if (registration.waiting) {
+          setUpdateAvailable(true);
+        }
+      });
+
       const messageHandler = (event) => {
         console.log('Received message from SW:', event.data);
 
@@ -306,16 +389,71 @@ function PWAStatusBadge() {
                 <span style={valueStyle}>{syncInfo.lastPageSynced || 'N/A'}</span>
               </div>
 
-              <div style={itemStyle}>
+              <div style={{ ...itemStyle, borderBottom: '1px solid rgba(0, 255, 136, 0.1)' }}>
                 <span style={labelStyle}>Build Date:</span>
                 <span style={valueStyle}>
                   {syncInfo.buildDate ? formatDate(syncInfo.buildDate) : 'N/A'}
                 </span>
               </div>
+
+              <div style={{ ...itemStyle, borderBottom: '1px solid rgba(0, 255, 136, 0.1)' }}>
+                <span style={labelStyle}>Tamaño Caché:</span>
+                <span style={valueStyle}>{cacheSize}</span>
+              </div>
+
+              {updateAvailable && (
+                <div style={{
+                  ...itemStyle,
+                  background: 'rgba(255, 215, 0, 0.1)',
+                  padding: '10px',
+                  borderRadius: '5px',
+                  border: '1px solid rgba(255, 215, 0, 0.3)',
+                  marginTop: '10px'
+                }}>
+                  <span style={{ ...labelStyle, color: '#ffd700' }}>¡Actualización Disponible!</span>
+                </div>
+              )}
+
+              <div style={{ marginTop: '15px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {updateAvailable && (
+                  <button
+                    onClick={updatePWA}
+                    style={{
+                      background: 'linear-gradient(135deg, #ffd700 0%, #ffb700 100%)',
+                      color: '#0f0f1e',
+                      border: 'none',
+                      padding: '10px 15px',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      fontSize: '12px',
+                      fontWeight: 'bold',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    🔄 Actualizar Ahora
+                  </button>
+                )}
+                <button
+                  onClick={clearCache}
+                  style={{
+                    background: 'rgba(255, 0, 110, 0.1)',
+                    color: '#ff006e',
+                    border: '1px solid rgba(255, 0, 110, 0.3)',
+                    padding: '10px 15px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    fontWeight: 'bold',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  🗑️ Limpiar Caché
+                </button>
+              </div>
             </div>
 
             <div style={footerStyle}>
-              <small>PWA v1.0</small>
+              <small>PWA v2.0 Enhanced</small>
             </div>
           </div>
         )}

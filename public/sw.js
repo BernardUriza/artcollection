@@ -1,11 +1,12 @@
 // Art Collection PWA Service Worker
 // Offline-first caching strategy with aggressive precaching
 
-const CACHE_NAME = 'artcollection-v4';
-const RUNTIME_CACHE = 'artcollection-runtime-v4';
+const CACHE_NAME = 'artcollection-v5';
+const RUNTIME_CACHE = 'artcollection-runtime-v5';
 const ASSETS_TO_PRECACHE = [
   '/',
   '/index.html',
+  '/offline.html',
   '/favicon.ico',
   '/logo.svg',
   '/pages.json',
@@ -190,8 +191,17 @@ self.addEventListener('fetch', event => {
               // Network failed and nothing in cache
               console.log('Navigation fetch failed and no cache:', error);
 
-              // Try fallback to index.html
-              return caches.match('/index.html')
+              // Try fallback to offline.html first, then index.html
+              return caches.match('/offline.html')
+                .then(offlineResponse => {
+                  if (offlineResponse) {
+                    console.log('Using offline.html as fallback');
+                    return offlineResponse;
+                  }
+
+                  // Fallback to index.html
+                  return caches.match('/index.html');
+                })
                 .then(indexResponse => {
                   if (indexResponse) {
                     console.log('Using cached index.html as fallback');
@@ -206,7 +216,7 @@ self.addEventListener('fetch', event => {
                   });
                 })
                 .catch(cacheError => {
-                  console.error('Error checking cache for index.html:', cacheError);
+                  console.error('Error checking cache:', cacheError);
                   return new Response('Service offline', { status: 503 });
                 });
             });

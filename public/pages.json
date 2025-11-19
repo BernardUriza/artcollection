@@ -15,6 +15,16 @@
     "description": "Professional presentation for establishing clear technical growth path and working relationship expectations."
   },
   {
+    "uuid": "d3d7b05a-3921-4f61-847c-d37db47c6d17",
+    "title": "November Retrospective - TrackingJLL",
+    "description": "Simple PR Review Tracker proposal for JLLGPT development. Addresses multi-week code review delays with a lightweight spreadsheet solution."
+  },
+  {
+    "uuid": "6f6a34d0-21da-4cc5-b181-4a3586a37906",
+    "title": "December - TrackingJLL Full System",
+    "description": "Complete tracking system leveraging JLLGPT AI endpoints. Personal Kanban + Jira-CLI + learning hours tracking for organized JLLGPT development."
+  },
+  {
     "uuid": "22b39bb7-2ba4-41bb-9011-ba5171415bf6",
     "title": "Tony 1:1 Discussion",
     "description": "One-on-one discussion document covering developer tooling, team positioning, and operational rhythm."

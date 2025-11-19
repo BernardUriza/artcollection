@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import ForensicExam from './pages/ForensicExam';
 import LanguageWorkshop from './pages/LanguageWorkshop';
 import DevelopmentPresentation from './pages/DevelopmentPresentation';
+import NovemberRetrospective from './pages/NovemberRetrospective';
+import DecemberJLLGPTSystem from './pages/DecemberJLLGPTSystem';
 import TonyOneOnOne from './pages/TonyOneOnOne';
 import AurityDeck from './pages/AurityDeck';
 import FICold from './pages/FICold';
@@ -13,6 +15,7 @@ import NutritionalPlan from './pages/NutritionalPlan';
 import NutritionGuide from './pages/NutritionGuide';
 import WeeklyMealPlan from './pages/WeeklyMealPlan';
 import PWAStatusBadge from './components/PWAStatusBadge/PWAStatusBadge';
+import InstallPrompt from './components/InstallPrompt/InstallPrompt';
 
 function App() {
   useEffect(() => {
@@ -37,6 +40,7 @@ function App() {
   return (
     <Router>
       <PWAStatusBadge />
+      <InstallPrompt />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -50,6 +54,14 @@ function App() {
         <Route
           path="/page/10cc9090-fc11-4ca1-b464-f902158d41df"
           element={<DevelopmentPresentation />}
+        />
+        <Route
+          path="/page/d3d7b05a-3921-4f61-847c-d37db47c6d17"
+          element={<NovemberRetrospective />}
+        />
+        <Route
+          path="/page/6f6a34d0-21da-4cc5-b181-4a3586a37906"
+          element={<DecemberJLLGPTSystem />}
         />
         <Route
           path="/page/22b39bb7-2ba4-41bb-9011-ba5171415bf6"

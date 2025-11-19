@@ -690,11 +690,11 @@ function NutritionGuide() {
           <div className="mindset-principles">
             <h3>Principios para los Próximos 10 Años</h3>
             <ul>
-              <li><strong>Progreso > Perfección:</strong> 6 días buenos por semana > 3 días perfectos</li>
-              <li><strong>Flexibilidad > Rigidez:</strong> Adaptarte a la vida real > seguir reglas ciegamente</li>
-              <li><strong>Aprendizaje > Castigo:</strong> "¿Qué aprendí?" > "Me arruiné"</li>
-              <li><strong>Proceso > Resultados:</strong> Disfrutar cocinar > solo ver la báscula</li>
-              <li><strong>Autonomía > Dependencia:</strong> Tomar decisiones informadas > necesitar un plan externo</li>
+              <li><strong>Progreso &gt; Perfección:</strong> 6 días buenos por semana &gt; 3 días perfectos</li>
+              <li><strong>Flexibilidad &gt; Rigidez:</strong> Adaptarte a la vida real &gt; seguir reglas ciegamente</li>
+              <li><strong>Aprendizaje &gt; Castigo:</strong> "¿Qué aprendí?" &gt; "Me arruiné"</li>
+              <li><strong>Proceso &gt; Resultados:</strong> Disfrutar cocinar &gt; solo ver la báscula</li>
+              <li><strong>Autonomía &gt; Dependencia:</strong> Tomar decisiones informadas &gt; necesitar un plan externo</li>
             </ul>
           </div>
           <div className="mindset-action">
