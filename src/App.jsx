@@ -14,6 +14,7 @@ import LaSociedadCansados from './pages/LaSociedadCansados';
 import NutritionalPlan from './pages/NutritionalPlan';
 import NutritionGuide from './pages/NutritionGuide';
 import WeeklyMealPlan from './pages/WeeklyMealPlan';
+import AurityCompetitors from './pages/AurityCompetitors';
 import PWAStatusBadge from './components/PWAStatusBadge/PWAStatusBadge';
 import InstallPrompt from './components/InstallPrompt/InstallPrompt';
 
@@ -94,6 +95,10 @@ function App() {
         <Route
           path="/page/093ba8bf-49b9-4fff-9f8e-90ffc52919ff"
           element={<WeeklyMealPlan />}
+        />
+        <Route
+          path="/page/f8a2c7e1-9d3b-4f6a-8e5c-2b1a0d9f4e3c"
+          element={<AurityCompetitors />}
         />
       </Routes>
     </Router>

@@ -64,4 +64,9 @@ export const pages = [
     title: 'Plan Semanal Simplificado (Imprimible)',
     description: 'Plan alimenticio semanal tradicional con tips educativos sutiles. Optimizado para imprimir y seguir fácilmente.',
   },
+  {
+    uuid: 'f8a2c7e1-9d3b-4f6a-8e5c-2b1a0d9f4e3c',
+    title: 'Análisis de Competidores - AURITY',
+    description: 'Análisis competitivo del mercado de documentación clínica AI. Comparativa con Nuance, Suki, Nabla y otros players.',
+  },
 ];
