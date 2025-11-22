@@ -6,8 +6,130 @@ const AurityCompetitors = () => {
   const [expandedCompetitor, setExpandedCompetitor] = useState(null);
 
   const competitors = [
+    // LATAM Competitors
     {
       id: 1,
+      name: 'Itaca AI',
+      category: 'Líder LATAM',
+      logo: 'Itaca',
+      description: 'Líder en LATAM con 20,000+ usuarios. Integra videollamadas y templates especializados por especialidad médica.',
+      deployment: 'cloud',
+      pricing: '$49-149/mes',
+      strengths: [
+        '20,000+ usuarios activos en LATAM',
+        'Templates especializados por especialidad',
+        'Integración con videollamadas',
+        'Fuerte presencia regional',
+        'UX adaptada al mercado hispanohablante'
+      ],
+      weaknesses: [
+        '100% cloud-dependent',
+        'PHI en servidores externos',
+        'Sin opción on-premise',
+        'Sin evidencia criptográfica',
+        'Sin cumplimiento NOM-004 verificable'
+      ],
+      aurityAdvantage: 'Aurity ofrece despliegue on-premise con soberanía total de datos y cumplimiento NOM-004.'
+    },
+    {
+      id: 2,
+      name: 'INVOX Medical',
+      category: 'Dictado Médico',
+      logo: 'INVOX',
+      description: 'Especialista en dictado médico con presencia en 550+ centros médicos en 20 países.',
+      deployment: 'cloud',
+      pricing: 'Enterprise',
+      strengths: [
+        '550+ centros médicos',
+        'Presencia en 20 países',
+        'Especialización en dictado médico',
+        'Diccionarios médicos especializados',
+        'Experiencia enterprise probada'
+      ],
+      weaknesses: [
+        'Pricing enterprise prohibitivo',
+        'Sin modelo freemium',
+        'Cloud-only deployment',
+        'Sin integridad criptográfica',
+        'Proceso de implementación largo'
+      ],
+      aurityAdvantage: 'Aurity ofrece pricing accesible con modelo freemium y despliegue rápido on-premise.'
+    },
+    {
+      id: 3,
+      name: 'Dorascribe',
+      category: 'AI Medical Scribe',
+      logo: 'Dorascribe',
+      description: 'Modelo freemium accesible para documentación clínica AI en el mercado LATAM.',
+      deployment: 'cloud',
+      pricing: '$39-89/mes',
+      strengths: [
+        'Modelo freemium disponible',
+        'Pricing accesible ($39-89/mes)',
+        'Fácil adopción',
+        'UI simple y directa',
+        'Buena relación precio/valor'
+      ],
+      weaknesses: [
+        'Cloud-first sin opción local',
+        'Funcionalidades limitadas vs enterprise',
+        'Sin integraciones EHR robustas',
+        'Sin evidencia forense',
+        'Soporte limitado'
+      ],
+      aurityAdvantage: 'Aurity combina pricing competitivo con capacidades enterprise y evidencia inmutable.'
+    },
+    {
+      id: 4,
+      name: 'Neogaleno',
+      category: 'EHR Mexicano',
+      logo: 'Neogaleno',
+      description: 'EHR mexicano con recetas firmadas digitalmente. Enfocado en cumplimiento regulatorio local.',
+      deployment: 'cloud',
+      pricing: '$$$',
+      strengths: [
+        'Recetas con firma digital',
+        'Cumplimiento regulatorio mexicano',
+        'Enfoque en mercado local',
+        'Integración con farmacias',
+        'Conocimiento del mercado MX'
+      ],
+      weaknesses: [
+        'Sin AI avanzado integrado',
+        'Solo cloud deployment',
+        'Limitado a México',
+        'Sin transcripción automática',
+        'Sin evidencia criptográfica'
+      ],
+      aurityAdvantage: 'Aurity añade AI avanzado con on-premise y evidencia SHA-256 al cumplimiento regulatorio.'
+    },
+    {
+      id: 5,
+      name: 'Hablax',
+      category: 'Dictado LATAM',
+      logo: 'Hablax',
+      description: 'Dictado médico para LATAM con pricing accesible y enfoque en facilidad de uso.',
+      deployment: 'cloud',
+      pricing: '$29-79/mes',
+      strengths: [
+        'Pricing muy accesible',
+        'Fácil de usar',
+        'Enfoque LATAM',
+        'Soporte en español',
+        'Rápida implementación'
+      ],
+      weaknesses: [
+        'Funcionalidades básicas',
+        'Sin integraciones avanzadas',
+        'Cloud-only',
+        'Sin evidencia auditable',
+        'Sin cumplimiento enterprise'
+      ],
+      aurityAdvantage: 'Aurity ofrece funcionalidades enterprise con evidencia forense a precio competitivo.'
+    },
+    // Global Competitors
+    {
+      id: 6,
       name: 'Nuance DAX',
       category: 'Big Tech Healthcare',
       logo: 'Microsoft/Nuance',
@@ -30,7 +152,7 @@ const AurityCompetitors = () => {
       aurityAdvantage: 'Aurity ofrece soberanía total de datos. Zero egreso, zero dependencia cloud.'
     },
     {
-      id: 2,
+      id: 7,
       name: 'Suki AI',
       category: 'AI Medical Scribe',
       logo: 'Suki',
@@ -53,7 +175,7 @@ const AurityCompetitors = () => {
       aurityAdvantage: 'Aurity provee integridad criptográfica y evidencia auditable que Suki no ofrece.'
     },
     {
-      id: 3,
+      id: 8,
       name: 'Nabla',
       category: 'AI Medical Scribe',
       logo: 'Nabla',
@@ -76,7 +198,7 @@ const AurityCompetitors = () => {
       aurityAdvantage: 'Aurity cumple NOM-004/NOM-024 mexicana con despliegue 100% local.'
     },
     {
-      id: 4,
+      id: 9,
       name: 'DeepScribe',
       category: 'AI Medical Scribe',
       logo: 'DeepScribe',
@@ -99,7 +221,7 @@ const AurityCompetitors = () => {
       aurityAdvantage: 'Aurity genera evidencia forense con hash SHA-256 que DeepScribe no puede ofrecer.'
     },
     {
-      id: 5,
+      id: 10,
       name: 'Amazon HealthScribe',
       category: 'Big Tech Healthcare',
       logo: 'AWS',
@@ -122,7 +244,7 @@ const AurityCompetitors = () => {
       aurityAdvantage: 'Aurity elimina dependencia de hyperscalers. Costos fijos y predecibles.'
     },
     {
-      id: 6,
+      id: 11,
       name: 'Abridge',
       category: 'AI Medical Scribe',
       logo: 'Abridge',
@@ -143,43 +265,30 @@ const AurityCompetitors = () => {
         'Sin cadena de evidencia verificable'
       ],
       aurityAdvantage: 'Aurity ofrece WORM lógico y manifests firmados para disputas legales.'
-    },
-    {
-      id: 7,
-      name: 'Soluciones EHR locales',
-      category: 'Legacy/Traditional',
-      logo: 'Legacy',
-      description: 'Sistemas EHR tradicionales on-premise (ej. algunos hospitales con servidores propios).',
-      deployment: 'on-premise',
-      pricing: '$$',
-      strengths: [
-        'Control total de infraestructura',
-        'Sin dependencia cloud',
-        'Costos fijos conocidos',
-        'Personal IT interno'
-      ],
-      weaknesses: [
-        'Sin AI/ML integrado',
-        'Mantenimiento costoso',
-        'Sin transcripción automática',
-        'UX anticuada',
-        'Sin integridad criptográfica moderna'
-      ],
-      aurityAdvantage: 'Aurity moderniza con AI on-premise sin sacrificar soberanía de datos.'
     }
   ];
 
   const comparisonMatrix = [
-    { feature: 'Despliegue On-Premise', aurity: true, nuance: false, suki: false, nabla: false, aws: false },
-    { feature: 'Zero PHI en MVP', aurity: true, nuance: false, suki: false, nabla: false, aws: false },
-    { feature: 'Hash SHA-256 por segmento', aurity: true, nuance: false, suki: false, nabla: false, aws: false },
-    { feature: 'Manifest firmado auditable', aurity: true, nuance: false, suki: false, nabla: false, aws: false },
-    { feature: 'WORM lógico', aurity: true, nuance: false, suki: false, nabla: false, aws: false },
-    { feature: 'Sin egreso de datos', aurity: true, nuance: false, suki: false, nabla: false, aws: false },
-    { feature: 'Cumplimiento NOM-004', aurity: true, nuance: 'partial', suki: 'partial', nabla: false, aws: 'partial' },
-    { feature: 'Pricing predecible', aurity: true, nuance: false, suki: false, nabla: true, aws: false },
-    { feature: 'ASR integrado', aurity: 'roadmap', nuance: true, suki: true, nabla: true, aws: true },
-    { feature: 'Integración EHR', aurity: 'roadmap', nuance: true, suki: true, nabla: true, aws: true },
+    { feature: 'Despliegue On-Premise', aurity: true, itaca: false, invox: false, dorascribe: false, neogaleno: false },
+    { feature: 'Zero PHI en MVP', aurity: true, itaca: false, invox: false, dorascribe: false, neogaleno: false },
+    { feature: 'Hash SHA-256 por segmento', aurity: true, itaca: false, invox: false, dorascribe: false, neogaleno: false },
+    { feature: 'Manifest firmado auditable', aurity: true, itaca: false, invox: false, dorascribe: false, neogaleno: false },
+    { feature: 'Sin egreso de datos', aurity: true, itaca: false, invox: false, dorascribe: false, neogaleno: false },
+    { feature: 'Cumplimiento NOM-004', aurity: true, itaca: 'partial', invox: 'partial', dorascribe: false, neogaleno: true },
+    { feature: 'Pricing accesible ($30-60)', aurity: true, itaca: true, invox: false, dorascribe: true, neogaleno: 'partial' },
+    { feature: 'Modelo Freemium', aurity: true, itaca: false, invox: false, dorascribe: true, neogaleno: false },
+    { feature: 'Templates por especialidad', aurity: 'roadmap', itaca: true, invox: true, dorascribe: false, neogaleno: false },
+    { feature: 'Generación de recetas', aurity: 'roadmap', itaca: false, invox: false, dorascribe: false, neogaleno: true },
+    { feature: 'Integración videollamadas', aurity: 'roadmap', itaca: true, invox: false, dorascribe: false, neogaleno: false },
+    { feature: 'Firma digital', aurity: 'roadmap', itaca: false, invox: false, dorascribe: false, neogaleno: true },
+  ];
+
+  const recommendedFeatures = [
+    { priority: 1, feature: 'Generación de recetas', reason: 'Diferenciador clave en LATAM', phase: 'Fase 1-2' },
+    { priority: 2, feature: 'Templates por especialidad', reason: 'Psiquiatría, pediatría, cirugía, etc.', phase: 'Fase 1-2' },
+    { priority: 3, feature: 'Integración videollamadas', reason: 'Captura telemedicina (Zoom/Meet/Teams)', phase: 'Fase 3' },
+    { priority: 4, feature: 'Recetas con firma digital', reason: 'Cumplimiento regulatorio México', phase: 'Fase 3' },
+    { priority: 5, feature: 'Diccionarios especializados', reason: 'Mejora precisión por área médica', phase: 'Fase 2' },
   ];
 
   const toggleExpanded = (id) => {
@@ -250,19 +359,38 @@ const AurityCompetitors = () => {
         </div>
       </section>
 
+      {/* Top 5 Features Section */}
+      <section className="features-section">
+        <h2>Top 5 Features Recomendadas</h2>
+        <p className="section-subtitle">Basado en análisis competitivo del mercado LATAM</p>
+        <div className="features-grid">
+          {recommendedFeatures.map((item) => (
+            <div key={item.priority} className="feature-card">
+              <div className="feature-priority">{item.priority}</div>
+              <div className="feature-content">
+                <h3>{item.feature}</h3>
+                <p>{item.reason}</p>
+                <span className="feature-phase">{item.phase}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Comparison Matrix */}
       <section className="comparison-section">
-        <h2>Matriz Comparativa</h2>
+        <h2>Matriz Comparativa LATAM</h2>
+        <p className="section-subtitle">Comparación con competidores principales del mercado latinoamericano</p>
         <div className="comparison-table-wrapper">
           <table className="comparison-table">
             <thead>
               <tr>
                 <th>Feature</th>
                 <th className="aurity-col">AURITY</th>
-                <th>Nuance DAX</th>
-                <th>Suki AI</th>
-                <th>Nabla</th>
-                <th>AWS HealthScribe</th>
+                <th>Itaca AI</th>
+                <th>INVOX</th>
+                <th>Dorascribe</th>
+                <th>Neogaleno</th>
               </tr>
             </thead>
             <tbody>
@@ -270,10 +398,10 @@ const AurityCompetitors = () => {
                 <tr key={index}>
                   <td className="feature-name">{row.feature}</td>
                   <td className="aurity-col">{renderFeatureStatus(row.aurity)}</td>
-                  <td>{renderFeatureStatus(row.nuance)}</td>
-                  <td>{renderFeatureStatus(row.suki)}</td>
-                  <td>{renderFeatureStatus(row.nabla)}</td>
-                  <td>{renderFeatureStatus(row.aws)}</td>
+                  <td>{renderFeatureStatus(row.itaca)}</td>
+                  <td>{renderFeatureStatus(row.invox)}</td>
+                  <td>{renderFeatureStatus(row.dorascribe)}</td>
+                  <td>{renderFeatureStatus(row.neogaleno)}</td>
                 </tr>
               ))}
             </tbody>
